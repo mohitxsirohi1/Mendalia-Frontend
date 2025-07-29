@@ -150,10 +150,10 @@ const showAddModal = ref(false)
 
 // Computed filtered patients
 const filteredPatients = computed(() => {
-  let filtered = patients.value || []
+  let filtered = [...(patients.value || [])]
   
-  if (searchQuery.value) {
-    const query = searchQuery.value.toLowerCase()
+  if (searchQuery.value && searchQuery.value.trim()) {
+    const query = searchQuery.value.toLowerCase().trim()
     filtered = filtered.filter(patient => 
       patient.name.toLowerCase().includes(query) ||
       patient.id.toLowerCase().includes(query) ||

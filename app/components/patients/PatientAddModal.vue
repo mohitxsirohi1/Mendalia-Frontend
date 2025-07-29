@@ -157,7 +157,19 @@ const isFormValid = computed(() => {
 // Methods
 const handleSubmit = () => {
   if (isFormValid.value) {
-    emit('save', { ...form.value })
+    emit('save', { 
+      ...form.value,
+      lastConsultation: form.value.admissionDate  // Set last consultation to admission date
+    })
+    // Reset form
+    form.value = {
+      name: '',
+      age: '',
+      sex: '',
+      admissionDate: new Date().toISOString().split('T')[0],
+      assignedDoctor: '',
+      status: ''
+    }
   }
 }
 

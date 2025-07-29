@@ -139,19 +139,18 @@
 </template>
 
 <script setup>
-const { $patientsStore } = useNuxtApp()
+// Get patients from store
+const patientsStore = usePatientsStore()
+const { patients } = storeToRefs(patientsStore)
 
 // Reactive data
 const searchQuery = ref('')
 const statusFilter = ref('')
 const showAddModal = ref(false)
 
-// Get patients from store
-const patients = $patientsStore ? $patientsStore.patients : []
-
 // Computed filtered patients
 const filteredPatients = computed(() => {
-  let filtered = patients
+  let filtered = patients.value || []
   
   if (searchQuery.value) {
     const query = searchQuery.value.toLowerCase()
@@ -175,8 +174,7 @@ const navigateToPatient = (patientId) => {
 }
 
 const handleAddPatient = (patientData) => {
-  // Add patient logic here
-  console.log('Adding patient:', patientData)
+  patientsStore.addPatient(patientData)
   showAddModal.value = false
 }
 

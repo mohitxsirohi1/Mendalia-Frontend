@@ -139,7 +139,7 @@ export const usePatientsStore = defineStore('patients', () => {
   const updateCase = (patientId, caseId, updates) => {
     const patient = getPatientById(patientId)
     if (patient) {
-      const caseIndex = patient.cases.findIndex(c => c.id === caseId)
+      const caseIndex = patient.cases.findIndex(caseItem => caseItem.id === caseId)
       if (caseIndex !== -1) {
         patient.cases[caseIndex] = { ...patient.cases[caseIndex], ...updates }
         return patient.cases[caseIndex]

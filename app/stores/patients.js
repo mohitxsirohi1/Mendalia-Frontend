@@ -108,7 +108,7 @@ export const usePatientsStore = defineStore('patients', () => {
 
   const getCaseById = (patientId, caseId) => {
     const patient = getPatientById(patientId)
-    return patient?.cases.find(case => case.id === caseId)
+    return patient?.cases.find(caseItem => caseItem.id === caseId)
   }
 
   const addPatient = (patientData) => {

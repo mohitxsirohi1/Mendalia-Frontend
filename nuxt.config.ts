@@ -13,9 +13,7 @@ export default defineNuxtConfig({
   ],
   
   vite: {
-    plugins: [
-      require('@tailwindcss/vite')()
-    ]
+    plugins: []
   },
   
   app: {

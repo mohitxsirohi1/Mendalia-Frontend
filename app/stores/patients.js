@@ -125,7 +125,7 @@ export const usePatientsStore = defineStore('patients', () => {
     const patient = getPatientById(patientId)
     if (patient) {
       const newCase = {
-        id: `CS${String(Math.random()).substr(2, 3)}`,
+        id: `CS${String(Date.now()).slice(-6)}`, // Use timestamp for unique ID
         date: new Date().toISOString().split('T')[0],
         status: 'Active',
         ...caseData

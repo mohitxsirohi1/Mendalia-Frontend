@@ -5,16 +5,13 @@ export default defineNuxtConfig({
   
   modules: [
     '@nuxt/icon',
-    '@pinia/nuxt'
+    '@pinia/nuxt',
+    '@nuxtjs/tailwindcss'
   ],
   
   css: [
     '~/assets/css/main.css'
   ],
-  
-  vite: {
-    plugins: []
-  },
   
   app: {
     head: {

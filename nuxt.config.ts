@@ -13,13 +13,6 @@ export default defineNuxtConfig({
     '~/assets/css/main.css'
   ],
   
-  postcss: {
-    plugins: {
-      '@tailwindcss/postcss': {},
-      autoprefixer: {},
-    },
-  },
-  
   app: {
     head: {
       title: 'Mendalia - AI Co-pilot for Doctors',
